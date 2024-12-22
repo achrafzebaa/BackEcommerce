@@ -7,6 +7,9 @@ const categorieRouter = require("./routes/categorie.route");
 const scategorieRouter = require("./routes/scategorie.route");
 const articleRouter = require("./routes/article.route");
 const paymentStripeRouter =require("./routes/paymentStripe.route.js");
+const userRouter =require("./routes/user.route")
+app.use(express.json());
+app.use('/api/users', userRouter);
 app.use('/api/paymentStripe', paymentStripeRouter);
 dotenv.config();
 
@@ -18,7 +21,7 @@ app.use(cors({
 }));
 
 // Parse JSON requests
-app.use(express.json());
+
 
 // Route setup
 app.use("/api/categorie", categorieRouter);
